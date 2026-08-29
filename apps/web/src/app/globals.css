@@ -1,16 +1,35 @@
 :root {
-  --ink: #13201c;
-  --ink-soft: #2a3b34;
-  --paper: #e7efe8;
-  --paper-deep: #d5e2d7;
-  --moss: #1f6a52;
-  --moss-bright: #2f8f6d;
-  --amber: #b7791f;
-  --line: rgba(19, 32, 28, 0.14);
-  --focus: #0f766e;
-  --danger: #9b2c2c;
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  /* Studio dark theme */
+  --bg: #0a0b10;
+  --bg-raised: #0f1118;
+  --panel: #13151f;
+  --panel-2: #171a26;
+  --panel-3: #1c2030;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --ink: #eef0f8;
+  --ink-soft: #a7adbf;
+  --ink-dim: #6b7286;
+  --accent: #7c5cff;
+  --accent-2: #22d3ee;
+  --warm: #f5a524;
+  --success: #34d399;
+  --danger: #f87171;
+  --grad-accent: linear-gradient(135deg, #7c5cff 0%, #22d3ee 100%);
+  --grad-cta: linear-gradient(135deg, #7c5cff 0%, #5b8cff 55%, #22d3ee 100%);
+  --ring: rgba(124, 92, 255, 0.45);
+  --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 8px 30px rgba(0, 0, 0, 0.35);
+  --font-display: 'Sora', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+  /* Legacy aliases (used by older pages) */
+  --paper: var(--bg);
+  --ink-strong: var(--ink);
+  --moss: var(--accent);
+  --moss-bright: var(--accent-2);
+  --amber: var(--warm);
+  --line: var(--border);
+  --focus: var(--accent);
 }
 
 * {
@@ -19,13 +38,18 @@
 
 html,
 body {
-  background:
-    radial-gradient(1200px 700px at 10% -10%, rgba(47, 143, 109, 0.18), transparent 60%),
-    radial-gradient(900px 600px at 100% 0%, rgba(183, 121, 31, 0.12), transparent 55%),
-    linear-gradient(165deg, #f3f7f3 0%, var(--paper) 45%, var(--paper-deep) 100%);
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.5;
+}
+
+body {
+  background-image:
+    radial-gradient(1100px 620px at 18% -12%, rgba(124, 92, 255, 0.14), transparent 60%),
+    radial-gradient(900px 560px at 96% -6%, rgba(34, 211, 238, 0.08), transparent 55%),
+    radial-gradient(760px 520px at 60% 115%, rgba(124, 92, 255, 0.07), transparent 60%);
+  background-attachment: fixed;
 }
 
 a {
@@ -40,14 +64,23 @@ textarea {
 }
 
 :focus-visible {
-  outline: 2px solid var(--focus);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(124, 92, 255, 0.35);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
 }
 
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -55,15 +88,15 @@ textarea {
   }
 }
 
-@keyframes pulse-line {
+@keyframes pulse-dot {
   0%,
   100% {
-    transform: scaleX(0.35);
-    opacity: 0.45;
+    opacity: 1;
+    transform: scale(1);
   }
   50% {
-    transform: scaleX(1);
-    opacity: 1;
+    opacity: 0.55;
+    transform: scale(0.8);
   }
 }
 
