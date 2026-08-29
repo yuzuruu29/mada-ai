@@ -1,0 +1,340 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0)),
+    var(--bg-raised);
+  padding: 0.95rem 1rem;
+  animation: rise-in 500ms ease both;
+}
+
+.card:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.card:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.card:nth-child(4) {
+  animation-delay: 180ms;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.cardLabel {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.headRight {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.runningPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: var(--success);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+.runTitle {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  margin-bottom: 0.4rem;
+}
+
+.progressPct {
+  color: var(--ink);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.progressTrack {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--grad-cta);
+  box-shadow: 0 0 12px rgba(124, 92, 255, 0.55);
+  transition: width 600ms ease;
+}
+
+.stageNote {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.7rem 0 0;
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+}
+
+.stageSpinner {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(124, 92, 255, 0.25);
+  border-top-color: var(--accent);
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.stepRowActive {
+  background: rgba(124, 92, 255, 0.1);
+  color: var(--ink);
+}
+
+.stepIndex {
+  width: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-dim);
+}
+
+.stepLabel {
+  flex: 1;
+}
+
+.stepDot {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  flex-shrink: 0;
+}
+
+.stepDone {
+  background: rgba(52, 211, 153, 0.18);
+  color: var(--success);
+}
+
+.stepActive {
+  border: 2px solid var(--accent);
+  border-top-color: transparent;
+  animation: spin 900ms linear infinite;
+}
+
+.stepTodo {
+  border: 1.5px solid var(--border-strong);
+}
+
+.countPill {
+  padding: 0.08rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(124, 92, 255, 0.16);
+  color: #c9bdff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.findings {
+  list-style: none;
+  margin: 0 0 0.7rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.finding {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.findingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 0.42rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(124, 92, 255, 0.6);
+}
+
+.findingText {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.findingCite {
+  margin: 0.2rem 0 0;
+  font-size: 0.7rem;
+  color: var(--ink-dim);
+}
+
+.linkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.linkBtn:hover {
+  text-decoration: underline;
+}
+
+.ghostLink {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink-dim);
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.ghostLink:hover {
+  color: var(--ink);
+}
+
+.sources {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.source {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background 130ms ease;
+}
+
+.source:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.sourceIcon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--panel-3);
+  color: var(--accent-2);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.sourceMeta {
+  min-width: 0;
+  flex: 1;
+}
+
+.sourceTitle {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sourceType {
+  margin: 0;
+  font-size: 0.66rem;
+  color: var(--ink-dim);
+}
+
+.sourceOpen {
+  color: var(--ink-dim);
+  font-size: 0.75rem;
+}
+
+.source:hover .sourceOpen {
+  color: var(--accent-2);
+}
+
+@media (max-width: 1080px) {
+  .panel {
+    display: none;
+  }
+}
