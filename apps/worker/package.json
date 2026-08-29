@@ -1,0 +1,27 @@
+{
+  "name": "@mada-ai/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@mada-ai/agent-core": "workspace:*",
+    "@mada-ai/db": "workspace:*",
+    "@mada-ai/models": "workspace:*",
+    "@mada-ai/search": "workspace:*",
+    "bullmq": "^5.41.0",
+    "ioredis": "^5.5.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  }
+}

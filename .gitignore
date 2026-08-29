@@ -1,0 +1,22 @@
+# Dependencies & build
+node_modules/
+dist/
+.next/
+.turbo/
+coverage/
+*.tsbuildinfo
+
+# Secrets & local env
+.env
+.env.local
+.env*.local
+
+# Tooling / OS
+*.log
+.DS_Store
+.netlify/
+.vercel/
+.cursor/
+
+# Local data
+docker-data/

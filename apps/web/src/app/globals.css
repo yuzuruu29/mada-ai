@@ -1,0 +1,79 @@
+:root {
+  --ink: #13201c;
+  --ink-soft: #2a3b34;
+  --paper: #e7efe8;
+  --paper-deep: #d5e2d7;
+  --moss: #1f6a52;
+  --moss-bright: #2f8f6d;
+  --amber: #b7791f;
+  --line: rgba(19, 32, 28, 0.14);
+  --focus: #0f766e;
+  --danger: #9b2c2c;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background:
+    radial-gradient(1200px 700px at 10% -10%, rgba(47, 143, 109, 0.18), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(183, 121, 31, 0.12), transparent 55%),
+    linear-gradient(165deg, #f3f7f3 0%, var(--paper) 45%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    transform: scaleX(0.35);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-trace {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

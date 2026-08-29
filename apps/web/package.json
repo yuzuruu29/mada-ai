@@ -1,0 +1,32 @@
+{
+  "name": "@mada-ai/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@mada-ai/agent-core": "workspace:*",
+    "@mada-ai/auth": "workspace:*",
+    "@mada-ai/db": "workspace:*",
+    "@mada-ai/models": "workspace:*",
+    "@mada-ai/search": "workspace:*",
+    "@mada-ai/shared": "workspace:*",
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.49.1",
+    "next": "^15.2.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  }
+}
