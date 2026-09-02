@@ -32,49 +32,96 @@ export default function LoginPage() {
 
   return (
     <main className="login">
-      <h1>Sign in to Mada.AI</h1>
-      <p>Use Supabase Auth (Google) for a cloud workspace, or continue as guest from the home page.</p>
-      <button type="button" disabled={pending || !configured} onClick={() => void signInWithGoogle()}>
-        {pending ? 'Redirecting…' : 'Continue with Google'}
-      </button>
-      {!configured ? (
-        <p className="hint">Add Supabase URL + publishable key to enable OAuth.</p>
-      ) : null}
-      {error ? <p className="error">{error}</p> : null}
+      <a className="brand" href="/">
+        Mada.AI
+      </a>
+      <div className="card">
+        <h1>Sign in</h1>
+        <p>
+          Use Supabase Auth (Google) for a cloud workspace, or{' '}
+          <a href="/">continue as guest</a> from the home page.
+        </p>
+        <button
+          type="button"
+          disabled={pending || !configured}
+          onClick={() => void signInWithGoogle()}
+        >
+          {pending ? 'Redirecting…' : 'Continue with Google'}
+        </button>
+        {!configured ? (
+          <p className="hint">Add Supabase URL + publishable key to enable OAuth.</p>
+        ) : null}
+        {error ? (
+          <p className="error" role="alert">
+            {error}
+          </p>
+        ) : null}
+      </div>
       <style jsx>{`
         .login {
-          max-width: 28rem;
-          margin: 4rem auto;
-          padding: 0 1.25rem;
-          font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1.5rem;
+          padding: 1.5rem;
+        }
+        .brand {
+          font-family: var(--font-display);
+          font-weight: 600;
+          font-size: 1.3rem;
+          color: var(--text);
+        }
+        .brand:hover {
+          text-decoration: none;
+        }
+        .card {
+          width: min(26rem, 100%);
+          border: 1px solid var(--line);
+          border-radius: 12px;
+          background: var(--bg-elev);
+          padding: 1.75rem;
         }
         h1 {
-          font-size: 1.75rem;
-          margin-bottom: 0.5rem;
+          font-family: var(--font-display);
+          font-weight: 600;
+          font-size: 1.5rem;
+          margin: 0 0 0.5rem;
         }
         p {
-          color: #3d4540;
-          line-height: 1.5;
+          color: var(--text-dim);
+          font-size: 0.92rem;
+          line-height: 1.55;
+          margin: 0 0 1rem;
         }
         button {
-          margin-top: 1.25rem;
-          padding: 0.7rem 1.1rem;
-          border: 1px solid #1c2420;
-          background: #1c2420;
-          color: #f4f1ea;
+          width: 100%;
+          padding: 0.65rem 1rem;
+          border: 1px solid rgba(74, 222, 128, 0.4);
+          border-radius: 8px;
+          background: var(--accent-soft);
+          color: var(--accent);
+          font-weight: 600;
           cursor: pointer;
         }
+        button:hover:not(:disabled) {
+          background: rgba(74, 222, 128, 0.2);
+        }
         button:disabled {
-          opacity: 0.55;
+          opacity: 0.45;
           cursor: not-allowed;
         }
         .hint,
         .error {
-          margin-top: 0.75rem;
-          font-size: 0.9rem;
+          margin: 0.75rem 0 0;
+          font-size: 0.82rem;
+        }
+        .hint {
+          color: var(--text-faint);
         }
         .error {
-          color: #8b2e2e;
+          color: var(--red);
         }
       `}</style>
     </main>
