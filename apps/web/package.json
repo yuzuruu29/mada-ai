@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
+    "dev": "sh -c 'while :; do next dev --turbopack --port 3000 --hostname 0.0.0.0; echo \"[dev] next exited ($?), restarting in 1s\"; sleep 1; done' --",
     "build": "next build",
     "start": "next start --port 3000",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -21,7 +21,8 @@
     "@supabase/supabase-js": "^2.49.1",
     "next": "^15.2.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0"
   },
   "devDependencies": {
     "@types/react": "^19.0.10",

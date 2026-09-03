@@ -10,24 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile=false
-      - run: pnpm --filter @mada-ai/shared build
-      - run: pnpm --filter @mada-ai/models build
-      - run: pnpm --filter @mada-ai/search build
-      - run: pnpm --filter @mada-ai/fetch build
-      - run: pnpm --filter @mada-ai/evidence build
-      - run: pnpm --filter @mada-ai/citations build
-      - run: pnpm --filter @mada-ai/agent-core build
-      - run: pnpm --filter @mada-ai/auth build
-      - run: pnpm --filter @mada-ai/billing build
-      - run: pnpm --filter @mada-ai/ui build
-      - run: pnpm --filter @mada-ai/evals build
-      - run: pnpm --filter @mada-ai/db build
+      - run: pnpm -r --filter './packages/*' build
       - run: pnpm test
       - run: pnpm --filter @mada-ai/web typecheck
